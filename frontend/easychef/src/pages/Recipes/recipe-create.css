@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
+/* @import 'material-symbols'; */
+
+* {
+  font-family: "Oxygen", sans-serif;
+  line-height: 30px;
+}
+body {
+  background-color: rgb(246, 238, 226);
+}
+
+.row {
+  margin-top: auto;
+}
+
+.title-banner {
+    color: white;
+    font-weight: bold;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  font-size: 30px;
+  vertical-align: bottom;
+}
+
+.content {
+  margin: auto;
+  padding: 5px;
+}
+
+.bottom-aligned {
+  vertical-align: bottom;
+}
+
+.form-section {
+  border: 1px solid #d9dce0;
+  background-color: white;
+  border-radius: 10px;
+}
+.form-top {
+  border-top: 10px solid rgb(238, 216, 170);
+}
+.circle-btn {
+  line-height: 0px !important;
+  border-radius: 1000px;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: rgb(255, 250, 245);
+  border: 0.1px solid rgb(239, 233, 227);
+}
+.circle-btn * {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#recipe-name {
+  font-family: "Oxygen", sans-serif;
+  padding-left: 10px;
+}
+
+.text-input-field {
+  font-family: "Oxygen", sans-serif !important;
+}
+
+.button-add-remove {
+  background-color: rgb(246, 238, 226) !important;
+  /* margin-left: 20px !important; */
+  border-radius: 20px !important;
+  border-color: rgb(246, 238, 226) !important;
+}
+
+.button-image {
+  background-color: rgb(246, 238, 226) !important;
+  /* margin-left: 20px !important; */
+  margin: 0;
+  border-radius: 20px !important;
+  border-color: rgb(246, 238, 226) !important;
+  height: 40px;
+  width: 100px;
+  padding-top: 15px;
+  cursor: pointer !important;
+}
+
+.button-image::file-selector-button {
+  width: 100px;
+  border-radius: 20px;
+  background-color: rgb(246, 238, 226);
+  border: none;
+  cursor: pointer !important;
+}
+
+.button-image:hover {
+  cursor: pointer !important;
+}
+
+
+.checkbox {
+  display: flex;
+  align-items: right;
+}
+
+.image-container {
+  background-color: rgb(246, 238, 226);
+  border-radius: 20px !important;
+  border-color: rgb(246, 238, 226) !important;
+  width: 200px !important;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

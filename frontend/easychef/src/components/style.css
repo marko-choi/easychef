@@ -1,0 +1,112 @@
+
+.body{
+  margin: 0px;
+  padding: 0px;
+}
+
+h1{
+  align-items: center;
+  text-align: center;
+}
+
+.MuiList-root.MuiList-padding.MuiMenu-list {
+  padding: 0 !important;
+}
+
+#login-button:hover {
+  background-color: #d68b56 !important;
+}
+
+.row{
+  margin-top: 11%;
+}
+
+/* Navbar */
+.navbar {
+  height: 10vh !important;
+  background-color: white;
+}
+
+.navbar-nav{
+  margin-right: 0;
+  min-width: 50%;
+}
+
+.navbar-brand{
+  margin-left: 3%;
+}
+
+.nav-item, #dropdownMenuButton {
+  /* margin-left: 3px; */
+  /* padding-left: 1rem;
+  padding-right: 1rem; */
+}
+
+
+.nav-item {
+  position: relative;
+  height: 100%;
+}
+
+.nav-item:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #9e5e5e;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out
+}
+
+.nav-item:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.nav-item .active {
+  color: #ef8336 !important;
+}
+
+.active-dropdown {
+  color: black !important;
+  font-family: 'Oxygen' !important;
+}
+
+.active-dropdown > * {
+  font-family: 'Oxygen' !important;
+}
+.active-dropdown.active {
+  color: #ef8336 !important;
+}
+
+
+.create-recipe:hover {
+  /* create box shadow */
+  /* round box */
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.19), 0px 1px 1px rgba(0, 0, 0, 0.109);
+  /* darken background color */
+  background-color: #df915a !important;
+  border: 0;
+}
+
+
+
+#logo{
+  width: 85px;
+  height: 85px;
+}
+
+.nav-add-recipe-btn  {
+  color:rgb(165, 113, 8);
+  border: 0;
+  background-color: transparent;
+}
+
+.nav-add-recipe-btn:hover  {
+  color:rgb(88, 65, 19);
+  border: 0;
+}
+

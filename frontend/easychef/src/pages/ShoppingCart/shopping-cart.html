@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Easy Chef | Shopping Cart</title>
+  <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+      @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+      :root {
+        --accordion-bg-color: #E9BC83;
+        --recipe-table-bg-color: #F7D998;
+        --accordion-body-bg-color: #FAE8C1;
+      }
+      * {
+        font-family: 'Oxygen', sans-serif;
+        /* border: 1px red solid; */
+      }
+      
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+      }
+
+      .accordion-button {
+        background-color: var(--accordion-bg-color);
+        border-radius: 10px 10px 0 0;
+      }
+      .accordion-button:not(.collapsed) {
+        background-color: var(--accordion-bg-color);
+        color: rgb(74, 48, 15);
+      }
+      .accordion-button:focus {
+        border-color:var(--accordion-bg-color);
+        box-shadow: 0 -1px 3px 0.25rem #e9ac1f4a;
+      }
+
+      .accordion-body {
+        background-color: var(--accordion-body-bg-color);
+      }
+
+      .recipe-table {
+        border: 0;
+      }
+      .recipe-table tr > th {
+        background-color: var(--recipe-table-bg-color);
+      }
+      .recipe-table tr > td {
+        border-bottom: 1px rgba(166, 165, 165, 0.37) solid !important;
+      }
+      
+      .recipe-table tr:last-child > td {
+        border: 0 !important;
+      }
+
+      .basket-table-divider {
+        background-color: rgb(240, 189, 153);
+        border-radius: 2px 2px 0 0;
+        box-shadow: 0 2px 2px 0 rgba(28, 28, 28, 0.16), 0 0 0 1px rgba(148, 102, 102, 0.08);
+        z-index: 100;
+        height: 20px;
+      }
+
+      .basket-table {
+        border: 0;
+        z-index: -100;
+      }
+
+      .basket-table-bg {
+        background-color: rgb(250, 250, 250);
+        padding-bottom: 3px;
+        padding-left: 2px;
+        padding-right: 2px;
+        border-radius: 5px;
+        /* box-shadow: 0 4px 1px 3px #b3b3b24a; */
+        box-shadow: 0 2px 2px 0 rgba(28, 28, 28, 0.16), 0 0 0 1px rgba(148, 102, 102, 0.08);
+
+      }
+
+      .basket-table tr > td {
+        border-bottom: 1px rgba(166, 165, 165, 0.37) solid !important;
+      }
+      
+      .basket-table tr:last-child > td {
+        border: 0 !important;
+      }
+
+      .basket-btn {
+        color: rgb(255, 255, 255);
+        font-weight: bolder;
+        background-color: rgb(240, 189, 153);
+      }
+
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand">
+    <div class="container">
+        <a href='index.html' class="navbar-brand"><image id="logo"src="static\logo.png"></image></a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item" style="vertical-align:middle;">
+                <a href="my-recipes.html" class="nav-link">Recipes</a>
+            </li>
+            <li class="nav-item">
+              <a href="recipe-create.html">
+                <button class="nav-add-recipe-btn h-100 m-0"> 
+                    <span class="material-symbols-outlined nav-circle" style="vertical-align:middle;">add_circle</span>
+                </button>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded=false><i class="bi bi-caret-down"></i></a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a href="profile.html" class="dropdown-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                        </svg> Profile</a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li><a href="shopping-cart.html" class="dropdown-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                      </svg> Shopping Cart</a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li><a href="edit-profile.html" class="dropdown-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                      </svg> Edit Profile</a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li><a href="#" class="dropdown-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                        <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                      </svg> Logout</a>
+                    </li>
+                </ul>
+            </li>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row m-0">
+      <!-- Shopping List -->
+      <div class="col-12 col-md-6">
+        <h1 class="text-start text-uppercase">Shopping List</h1>
+        
+        <!-- Item 1 -->
+        <div class="accordion pb-2">
+          <div class="acoordion-item">
+            <h2 class="accordion-header m-0 p-0">
+              <button 
+                class="shopping-list-accordion accordion-button m-0 p-2" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#recipe1"
+                aria-expanded="true"
+                aria-controls="recipe1">
+                <div class="d-flex flex-row w-100 me-2">
+                  <div class="m-0 row w-100">
+                    <div class="p-0 col-7 m-0 align-items-center" >
+                      <p class="m-0 p-0 d-flex h-100 align-items-center justify-content-start" >
+                        <strong>Korean BBQ Skewers</strong>
+                      </p>
+                    </div>
+                    <div class="p-0 col-2">
+                      <p class="m-0 p-0 d-flex h-100 align-items-center justify-content-center">Servings</p>
+                    </div>
+                    <div class="p-0 col-2">
+                      <select class="form-select mx-0 d-flex h-100 align-items-center justify-content-center" aria-label="Default select example">
+                        <option selected value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                      </select>
+                    </div>
+                    <div class="p-0 col-1">
+                      <p class="m-0 p-0 d-flex h-100 align-items-center justify-content-end">
+                        <span class="material-symbols-outlined">close</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            </h2>
+            <div id="recipe1" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body px-2 pb-1 pt-2">
+                <div class="table-responsive">
+                  <table class="recipe-table table table-borderless w-100">
+                    <thead class="table-warning">
+                      <tr>
+                        <th scope="col">Recipe</th>
+                        <th scope="col">Per Serving</th>
+                        <th scope="col"></th>
+                        <th scope="col">Amount</th>
+                        <th scope="col"></th>
+                        <th scope="col">Total Amount</th>
+                        <th scope="col">Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Lean sirloin steaks</td>
+                        <td>3 oz.</td>
+                        <td>x</td>
+                        <td>1</td>
+                        <td>=</td>
+                        <td>3 oz.</td>
+                        <td>$30.00</td>
+                      </tr>
+                      <tr>
+                        <td>Onion</td>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>1</td>
+                        <td>=</td>
+                        <td>1</td>
+                        <td>$16.00</td>
+                      </tr>
+                      <tr>
+                        <td>Garlic</td>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>1</td>
+                        <td>=</td>
+                        <td>1</td>
+                        <td>$20.00</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Sub-Total</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><strong>$66.00</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="accordion pb-2">
+          <div class="acoordion-item">
+            <h2 class="accordion-header m-0 p-0">
+              <button 
+                class="shopping-list-accordion accordion-button m-0 p-2" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#recipe2"
+                aria-expanded="true"
+                aria-controls="recipe2">
+                <div class="d-flex flex-row w-100 me-2">
+                  <div class="m-0 row w-100">
+                    <div class="p-0 col-7 m-0 align-items-center" >
+                      <p class="m-0 p-0 d-flex h-100 align-items-center justify-content-start" >
+                        <strong>Korean BBQ Skewers</strong>
+                      </p>
+                    </div>
+                    <div class="p-0 col-2">
+                      <p class="m-0 p-0 d-flex h-100 align-items-center justify-content-center">Servings</p>
+                    </div>
+                    <div class="p-0 col-2">
+                      <select class="form-select mx-0 d-flex h-100 align-items-center justify-content-center" aria-label="Default select example">
+                        <option selected value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                      </select>
+                    </div>
+                    <div class="p-0 col-1">
+                      <p class="m-0 p-0 d-flex h-100 align-items-center justify-content-end">
+                        <span class="material-symbols-outlined">close</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            </h2>
+            <div id="recipe2" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body px-2 pb-1 pt-2">
+                <div class="table-responsive">
+                  <table class="recipe-table table table-borderless w-100">
+                    <thead class="table-warning">
+                      <tr>
+                        <th scope="col">Recipe</th>
+                        <th scope="col">Per Serving</th>
+                        <th scope="col"></th>
+                        <th scope="col">Amount</th>
+                        <th scope="col"></th>
+                        <th scope="col">Total Amount</th>
+                        <th scope="col">Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Lean sirloin steaks</td>
+                        <td>3 oz.</td>
+                        <td>x</td>
+                        <td>1</td>
+                        <td>=</td>
+                        <td>3 oz.</td>
+                        <td>$30.00</td>
+                      </tr>
+                      <tr>
+                        <td>Onion</td>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>1</td>
+                        <td>=</td>
+                        <td>1</td>
+                        <td>$16.00</td>
+                      </tr>
+                      <tr>
+                        <td>Garlic</td>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>1</td>
+                        <td>=</td>
+                        <td>1</td>
+                        <td>$20.00</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Sub-Total</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><strong>$66.00</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="accordion pb-2">
+          <div class="acoordion-item">
+            <h2 class="accordion-header m-0 p-0">
+              <button 
+                class="shopping-list-accordion accordion-button m-0 p-2" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#recipe3"
+                aria-expanded="true"
+                aria-controls="recipe3">
+                <div class="d-flex flex-row w-100 me-2">
+                  <div class="m-0 row w-100">
+                    <div class="p-0 col-7 m-0 align-items-center" >
+                      <p class="m-0 p-0 d-flex h-100 align-items-center justify-content-start" >
+                        <strong>Korean BBQ Skewers</strong>
+                      </p>
+                    </div>
+                    <div class="p-0 col-2">
+                      <p class="m-0 p-0 d-flex h-100 align-items-center justify-content-center">Servings</p>
+                    </div>
+                    <div class="p-0 col-2">
+                      <select class="form-select mx-0 d-flex h-100 align-items-center justify-content-center" aria-label="Default select example">
+                        <option selected value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                      </select>
+                    </div>
+                    <div class="p-0 col-1">
+                      <p class="m-0 p-0 d-flex h-100 align-items-center justify-content-end">
+                        <span class="material-symbols-outlined">close</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            </h2>
+            <div id="recipe3" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body px-2 pb-1 pt-2">
+                <div class="table-responsive">
+                  <table class="recipe-table table table-borderless w-100">
+                    <thead class="table-warning">
+                      <tr>
+                        <th scope="col">Recipe</th>
+                        <th scope="col">Per Serving</th>
+                        <th scope="col"></th>
+                        <th scope="col">Amount</th>
+                        <th scope="col"></th>
+                        <th scope="col">Total Amount</th>
+                        <th scope="col">Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Lean sirloin steaks</td>
+                        <td>3 oz.</td>
+                        <td>x</td>
+                        <td>1</td>
+                        <td>=</td>
+                        <td>3 oz.</td>
+                        <td>$30.00</td>
+                      </tr>
+                      <tr>
+                        <td>Onion</td>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>1</td>
+                        <td>=</td>
+                        <td>1</td>
+                        <td>$16.00</td>
+                      </tr>
+                      <tr>
+                        <td>Garlic</td>
+                        <td>1</td>
+                        <td>x</td>
+                        <td>1</td>
+                        <td>=</td>
+                        <td>1</td>
+                        <td>$20.00</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Sub-Total</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><strong>$66.00</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- Basket Total -->
+      <div class="col-12 col-md-6">
+        <h1 class="text-start text-uppercase">Basket Total</h1>
+        <div class="basket-table-divider"></div>
+        <div class="basket-table-bg">
+          <div class="table-responsive">
+            <table class="basket-table table table-borderless w-100">
+              <thead class="table-warning">
+                <tr>
+                  <th scope="col">Recipe</th>
+                  <th scope="col">Per Serving</th>
+                  <th scope="col"></th>
+                  <th scope="col">Amount</th>
+                  <th scope="col"></th>
+                  <th scope="col">Total Amount</th>
+                  <th scope="col">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Lean sirloin steaks</td>
+                  <td>3 oz.</td>
+                  <td>x</td>
+                  <td>3</td>
+                  <td>=</td>
+                  <td>9 oz.</td>
+                  <td>$90.00</td>
+                </tr>
+                <tr>
+                  <td>Onion</td>
+                  <td>1</td>
+                  <td>x</td>
+                  <td>3</td>
+                  <td>=</td>
+                  <td>1</td>
+                  <td>$48.00</td>
+                </tr>
+                <tr>
+                  <td>Garlic</td>
+                  <td>1</td>
+                  <td>x</td>
+                  <td>3</td>
+                  <td>=</td>
+                  <td>1</td>
+                  <td>$60.00</td>
+                </tr>
+                <tr>
+                  <td><strong>Total</strong></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><strong>$198.00</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn basket-btn me-2">Confirm</button>
+            <button type="button" class="btn basket-btn">Clear All</button>
+          </div>
+        </div>
+        </div>
+
+    </div>
+  </div>
+</body>
+</html>

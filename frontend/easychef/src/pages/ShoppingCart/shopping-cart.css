@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+:root {
+  --accordion-bg-color: #E9BC83;
+  --recipe-table-bg-color: #F7D998;
+  --accordion-body-bg-color: #FAE8C1;
+}
+* {
+  font-family: 'Oxygen', sans-serif;
+  /* border: 1px red solid; */
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+#shopping-cart-servings-label {
+  font-size: 0.85rem;
+  color:rgb(74, 48, 15) !important;
+  font-family: 'Oxygen' !important;
+}
+
+#shopping-list-expand-all:hover, #shopping-list-collapse-all:hover {
+  background-color: #F0BD99;
+
+}
+#shopping-list-box {
+  background-color: rgba(255, 255, 255, 0.311) !important;
+}
+#shopping-list-header {
+  background-color: var(--accordion-bg-color) !important;
+}
+
+#shopping-list-table-header {
+  background-color: var(--recipe-table-bg-color) !important;
+}
+#shopping-list-table-header-data {
+  font-family: 'Oxygen' !important;
+  font-weight: bold !important;
+}
+
+#shopping-list-table-items {
+  font-family: 'Oxygen' !important;
+  background-color: var(--accordion-body-bg-color) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#shopping-list-table-items > td {
+  font-family: 'Oxygen' !important;
+  border-bottom: 1px rgba(166, 165, 165, 0.143) solid !important;
+}
+
+#basket-table-header {
+  background-color: var(--recipe-table-bg-color) !important;
+}
+#basket-table-header > td {
+  font-family: 'Oxygen' !important;
+  font-weight: bold !important;
+}
+#basket-table-body {
+  background-color: var(--accordion-body-bg-color) !important;
+}
+.accordion-button {
+  background-color: var(--accordion-bg-color);
+  border-radius: 10px 10px 0 0;
+}
+.accordion-button:not(.collapsed) {
+  background-color: var(--accordion-bg-color);
+  color: rgb(74, 48, 15);
+}
+.accordion-button:focus {
+  border-color:var(--accordion-bg-color);
+  box-shadow: 0 -1px 3px 0.25rem #e9ac1f4a;
+}
+
+.accordion-body {
+  background-color: var(--accordion-body-bg-color);
+}
+
+.recipe-table {
+  border: 0;
+}
+.recipe-table tr > th {
+  background-color: var(--recipe-table-bg-color);
+}
+.recipe-table tr > td {
+  border-bottom: 1px rgba(166, 165, 165, 0.37) solid !important;
+}
+
+.recipe-table tr:last-child > td {
+  border: 0 !important;
+}
+
+.basket-table-divider {
+  background-color: rgb(240, 189, 153);
+  border-radius: 2px 2px 0 0;
+  box-shadow: 0 2px 2px 0 rgba(28, 28, 28, 0.16), 0 0 0 1px rgba(148, 102, 102, 0.08);
+  z-index: 100;
+  height: 20px;
+}
+
+.basket-table {
+  border: 0;
+  z-index: -100;
+}
+
+.basket-table-bg {
+  background-color: rgb(250, 250, 250);
+  padding-bottom: 3px;
+  padding-left: 2px;
+  padding-right: 2px;
+  border-radius: 5px;
+  /* box-shadow: 0 4px 1px 3px #b3b3b24a; */
+  box-shadow: 0 2px 2px 0 rgba(28, 28, 28, 0.16), 0 0 0 1px rgba(148, 102, 102, 0.08);
+
+}
+
+.basket-table tr > td {
+  border-bottom: 1px rgba(166, 165, 165, 0.37) solid !important;
+}
+
+.basket-table tr:last-child > td {
+  border: 0 !important;
+}
+
+.basket-btn {
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  background-color: rgb(240, 189, 153);
+}
+

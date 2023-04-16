@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap'); */
+* {
+  /* font-family: 'Poppins', serif; */
+  font-family: 'Oxygen', sans-serif;
+  /* font-family: 'DM Sans'; */
+  /* font-family: 'Space Grotesk' !important; */
+  /* font-family: 'Cambria' !important; */
+  /* font-family: 'Georgia' !important; */
+  /* font-family: Avenir !important; */
+  /* font-family: 'Noto Sans' !important; */
+  /* font-family: 'Roboto Condensed' !important; */
+
+  line-height: 1rem;
+  /* border: 1px red solid; */
+}
+a {
+  text-decoration: none !important;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  font-size: 22px;
+}
+
+.sm-material-symbols-outlined {
+  font-size: 18px;
+}
+
+.inquiry-divider {
+  background-color: rgb(240, 189, 153);
+  border-radius: 2px 2px 0 0;
+  height: 6px;
+}
+.filter-divider {
+  background-color: rgb(222, 174, 140);
+  border-radius: 2px 2px 0 0;
+  height: 4px;
+}
+.sorting-divider {
+  background-color: rgb(202, 147, 108);
+  border-radius: 2px 2px 0 0;
+  height: 4px;
+}
+.search-input {
+  font-family: Oxygen !important;
+  width: 100%;
+  border-radius: 30px;
+}
+.hero-search-input {
+  font-family: Oxygen !important;
+  width: 100% !important;
+  border-radius: 30px !important;
+  border: 1px solid #5a5a5a !important;
+}
+.search-input > * {
+  font-family: Oxygen !important;
+  font-size: 0.95rem !important;
+  height: 80% !important;
+}
+
+.search-ingredients  {
+  font-family: Oxygen !important;
+  font-size: 0.95rem !important;
+  height: 80% !important;
+}
+
+.search-ingredients > * {
+  font-family: Oxygen !important;
+  font-size: 0.95rem !important;
+  height: 80% !important;
+}
+
+.inquiry, .inquiry button {
+  font-size: 0.9rem !important;
+  line-height: 1.2rem;
+}
+.popular-recipe-title {
+  text-align: left;
+  top: 0;
+  background-color: #F9E6D6;
+  z-index: 999;
+}
+
+.popular-recipe-img {
+  border-radius: 10px;
+  /* border: 10px red solid !important; */
+  /* object-fit: cover !important */
+  height: 500px;
+  width: 500px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  /* object-position: center center; */
+
+  /* width: '100%',
+  alignSelf: 'center',
+  // zIndex: '999',
+  height: '100%',
+  aspectRatio: 1,
+  objectFit: 'cover',
+  objectPosition: 'center center'; */
+
+
+}
+
+.home-inquiry-columns {
+  margin-top: 3.5% !important;
+}
+
+.popular-recipe-title.sticky {
+  border-bottom: 12px solid #885124 !important;
+}
+
+.main-content {
+  background-color: rgb(249, 230, 214);
+}
+.search-filter-label {
+  margin: 0;
+}
+hr {
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.submit-btn {
+  /* padding: px; */
+  margin-top: 3px !important;
+  line-height: 0px !important;
+  border-radius: 1000px !important;
+  margin-left: 3px !important;
+  background-color: #f3c792 !important;
+}
+.submit-btn > * {
+  font-size: 1.3rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+/* Card */
+.card {
+  height: 100%;
+  width: 100%;
+  transition: transform 0.25s, box-shadow 0.25s;
+  border-top: 4px rgb(240, 209, 141) solid;
+  border-bottom: 4px rgb(240, 209, 141) solid;
+  padding: 3px;
+  /* border: 1px red solid; */
+}
+/* .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.19), 0px 3px 3px rgba(0, 0, 0, 0.109);
+} */
+.card-img {
+  border-radius: 10px;
+  /* border: 1px red solid; */
+  background-color: bisque;
+}
+.card-body {
+  margin-bottom: 2px;
+}
+.card-text {
+  font-size: 0.925rem;
+  color: rgb(72, 72, 72);
+}
+
+.card-statistics > div > div {
+  /* border: 1px solid red !important; */
+  justify-content: space-around !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.card-statistics > div > div > svg {
+  font-size: 26px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.card-rating, .card-favorite, .card-cook-time, .card-cuisine, .card-comments, .card-prep-time {
+  font-size: 1rem !important;
+}
+
+.comment {
+  font-size: 0.75rem;
+}
+.popular-recipe-comment, .popular-recipe-comment > * {
+  line-height: 1.2rem !important;
+  font-size: 0.85rem !important;
+}
+.comment-lg {
+  font-size: 0.85rem;
+}
+
+.card-interactions:hover { cursor: default; }
+.interact:hover { cursor: pointer; }
+
+/* Hero Section */
+.text-hero{
+  color: rgb(69, 2, 2);
+  font-size: 2.8em;
+  font-weight: 700;
+  margin-bottom: 0.5%;
+  line-height: normal !important;
+}
+
+.btns{  
+  color: white;
+  border-radius: 10px;
+  padding: 1% 0.3%;
+  margin: 1% 0;
+}
+
+.hero-btn{
+  text-transform: capitalize !important;
+  font-family: Oxygen !important;
+  padding: 2% !important;
+  margin-right: 1% !important;
+}
+
+.text{
+  min-height: 90vh
+}
+
+.hero {
+  background-color: white;
+}
+
+body {
+  background-color: rgb(249, 230, 214);
+}
+
+/* 'View Dishses' button */
+.dishes-btn {
+  background-color: #f3c792 !important;
+  color: rgb(69, 2, 2) !important;
+  border: 1px solid #f3c792 !important;
+}
+
+.dishes-btn:hover {
+  background-color: rgb(208, 162, 106) !important;
+  color: rgb(255, 255, 255) !important;
+  border: 1px solid rgb(208, 162, 106) !important;
+}
+
+/* 'Create Your Own Recipe' button */
+.recipe-btn {
+  background-color: rgb(208, 162, 106) !important;
+  color: rgb(69, 2, 2) !important;
+  border: 1px solid rgb(208, 162, 106) !important;
+} 
+.recipe-btn:hover {
+  background-color: rgb(156, 121, 79) !important;
+  color: white !important; 
+  border: 1px solid rgb(156, 121, 79) !important;
+}
+
+.hero-btn:active {
+  border: 1px solid rgb(69, 2, 2) !important;
+}
+
+
+
+@media (max-width: 767px) {
+  .form-check-label, .checkbox-label {
+    width: 75px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.1rem;
+  }
+}
+.rating-buttons{
+  display: flex;
+  align-items: center;
+}
+
+.read-only-rating-buttons {
+  display: flex;
+  align-items: center;
+  cursor: default;
+}
+
+.pagination-box > div {
+  background-color: #feecc6;
+  display: flex !important;
+  align-items: center !important; 
+  align-content: center !important;
+}
+
+.pagination-box > div > p {
+  font-family: 'Oxygen' !important;  
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.pagination-box > div > div {
+  font-family: 'Oxygen' !important;  
+  /* margin: 0 !important; */
+  padding: 0 !important;
+}
+
+.sorting-badge .MuiBadge-badge {
+
+    padding: 5px;
+    height: 5px;
+    width: 0px !important;
+    font-size: 10px !important;
+
+}

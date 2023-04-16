@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Easy Chef | Details - Korean BBQ Skewers</title>
+  <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+    
+    * {
+      font-family: 'Oxygen', sans-serif;
+      line-height: 30px;
+    }
+    #tags{
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: auto;
+    }
+    
+    .tag-item {
+      font-size: 0.8rem;
+      color:white;
+      margin: 3px;
+      border-radius: 50px;
+      background-color: #EBBE89;
+    }
+
+    .checked {
+      color:orange;
+    }
+    .elevated {
+      border: 1px rgb(219, 218, 218) solid;
+      /* box-shadow: 0px 1px 2px rgba(0,0,0,0.19), 0px 1px 2px rgba(0, 0, 0, 0.109); */
+    }
+    .elevated > .btn {
+      padding: 30px !important;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 48;
+    }
+    
+    .filled {
+      font-variation-settings: 'FILL' 1;
+      color: rgb(234, 157, 157);
+    }
+    .filled-black {
+      font-variation-settings: 'FILL' 1;
+      color: rgb(59, 59, 93);
+    }
+    
+    .subheading {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .material-symbols-outlined {
+      font-weight: 500;
+      font-size: 30px;
+      vertical-align: bottom;
+    }
+    
+    /* Dish Information */
+    #dish-information-table th {
+      width: 11rem;
+    }
+    #dish-information-table .material-symbols-outlined {
+      font-size: 24px !important;
+    }
+    
+    .main-details-divider {
+      background-color: #CC7A7A;
+      height: 10px;
+    }
+    .main-details {
+      background-color: #fadbdb;
+    }
+    
+    /* Nutiriton Information */
+    .nutrition-divider {
+      background-color:rgb(120, 228, 228);
+      height: 10px;
+    }
+    .nutrition-information {
+      background-color: rgb(207, 238, 238);
+    }
+    .nutrition-information hr {
+      border-color: rgb(27, 82, 82);
+    }
+    .nutrition-table tr > * {
+      width: 13rem;
+    } 
+
+    /* Ingredient Information */
+    .ingredients-divider {
+      background-color: rgb(146, 191, 227);
+      height: 10px;
+    }
+    .ingredients-information {
+      background-color: rgb(212, 231, 247);
+    }
+    .ingredients-information hr {
+      border-color: rgb(23, 75, 121);
+    }
+    /* Reference: https://stackoverflow.com/questions/7698764/custom-bullet-symbol-for-li-elements-in-ul-that-is-a-regular-character-and */
+    .ingredients-information li {
+      line-height: 1.3rem;
+      padding-left: 1em;
+      text-indent: -1em;
+      /* font-family: cursive; */
+    }
+    .ingredients-information  ul {
+      list-style: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+    .ingredients-information li:before {
+      content: "►";
+      font-size: 10px;
+      padding-right: 5px;
+      /* background-color: red; */
+    }
+    #second-image{
+      width: 30%;
+    }
+
+    
+    /* Instructions Information */
+    .instruction-divider {
+      background-color: lavender;
+      height: 10px;
+    }
+
+    .instruction-information {
+      background-color: rgb(252, 248, 255);
+    }
+
+    .step {
+      min-height: 4rem;
+      border-radius: 10px;
+    }
+
+    .step-num {
+      color:white;
+      font-size: 3.75rem;
+      text-align: center;
+      padding-right: 0px;
+    }
+
+    .step-content {
+      line-height: 1.3rem;
+      font-size: 0.9rem;
+    }
+
+    .add-to-cart {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1;
+    }
+    
+    .current-basket, .purchase-table  {
+      border: 1px solid rgb(195, 195, 195);
+    }
+
+    .current-basket thead,
+    .purchase-table thead  {
+      background:rgb(170, 170, 170);
+      color: white;
+    }
+
+    .current-basket td,
+    .purchase-table td {
+      padding-left: 10px;
+    }
+
+    .modal-header, .modal-title {
+      background: rgb(245, 235, 208);
+    }
+    
+    /* Comment section */
+    .profilepic{
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+    }
+
+    .comment-section {
+      background-color: #ffead2;
+    }
+    .comments {
+      background-color: rgba(255, 255, 255, 0.674);
+    }
+  </style>
+
+</head>
+
+
+<body>
+   <!-- Navigation Bar -->
+   <nav class="navbar navbar-expand">
+    <div class="container">
+        <a href='index.html' class="navbar-brand"><image id="logo"src="static\logo.png"></image></a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item" style="vertical-align:middle;">
+                <a href="my-recipes.html" class="nav-link">Recipes</a>
+            </li>
+            <li class="nav-item">
+              <a href="recipe-create.html">
+                <button class="nav-add-recipe-btn h-100 m-0"> 
+                    <span class="material-symbols-outlined nav-circle" style="vertical-align:middle;">add_circle</span>
+                </button>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded=false><i class="bi bi-caret-down"></i></a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a href="profile.html" class="dropdown-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                        </svg> Profile</a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li><a href="shopping-cart.html" class="dropdown-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                      </svg> Shopping Cart</a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li><a href="edit-profile.html" class="dropdown-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                      </svg> Edit Profile</a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li><a href="#" class="dropdown-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                        <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                      </svg> Logout</a>
+                    </li>
+                </ul>
+            </li>
+    </div>
+  </nav>
+
+  <!-- Button trigger modal -->
+  <div class="add-to-cart">
+    <button type="button" class="btn btn-primary bg-dark" data-bs-toggle="modal" data-bs-target="#shoppingModal">
+      <span class="material-symbols-outlined fs-4" data-bs-toggle="modal" data-bs-target="#shoppingModal">shopping_cart</span>    
+      Add to Cart
+    </button>
+  </div>
+  
+  <!-- Modal -->
+  <!-- Reference: https://getbootstrap.com/docs/5.3/components/modal/#live-demo -->
+  <div class="modal fade" id="shoppingModal" tabindex="-1" aria-labelledby="shoppingModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="shoppingModalLabel">Shopping Cart</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="row m-0 mx-2">
+            Current Basket
+            <table class="current-basket w-100">
+              <thead>
+                <tr>
+                  <td colspan="2">Name</td>
+                  <td colspan="1">Servings</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-muted" colspan="3" style="text-align: center;">No items in Basket</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row mx-2">
+            Add to Basket
+            <table class="purchase-table w-100">
+              <thead>
+                <tr>
+                  <td colspan="2">Name</td>
+                  <td colspan="1">Servings</td>
+                </tr>
+              </thead>
+              <tr>
+                <td colspan="2">Korean BBQ Skewers</td>
+                <td colspan="1">
+                  <select class="form-select mx-0 d-flex h-100 align-items-center justify-content-center" aria-label="Default select example">
+                    <option selected value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-dark">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container mx-auto p-0 m-0">
+    <div class="row m-0 mt-3">
+      <div class="col-0 col-md-1 "></div>
+      <div class="col-12 col-md-10 justify-content-center">
+        <!-- Title -->
+        <div class="container text-center" id="recipe-title">
+          <h1 class="text-center text-capitalize">Korean BBQ Skewers</h1>
+          <h2 class="text-body-secondary fs-5">Hugh Jass</h2>
+          <h3 class="text-body-tertiary fs-6">Jan 28, 2023</h3>
+          
+          <ul id="tags">
+            <li class="tag-item px-2">APPETIZER</li>
+            <li class="tag-item px-2">BEEF</li>
+            <li class="tag-item px-2">MAIN DISHES</li>
+          </ul>
+        </div>
+
+        <div class="container">
+          <hr class="mx-3 mt-2">
+        </div>
+        
+        <!-- Image -->
+        <div class="container mt-3 mb-3">
+          <div class="row m-0 p-0">
+            <img class="w-100" alt="Delicious BBQ Skewers" src="./static/korean-bbq-skewer.png">
+          </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="container">
+          <div class="container">
+            <!-- Ratings & Favorite -->
+            <div class="ratings d-flex flex-row">
+              <div class="col-6">
+                <strong class="text-uppercase">Rating</strong>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span> 
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+              </div>
+              <div class="d-flex col-6 justify-content-end">
+                <button class="btn p-0 m-0 me-3 elevated">
+                  <span class="material-symbols-outlined fs-4 filled me-1">favorite</span>Like
+                </button>
+                <button class="btn p-0 m-0 me-3 elevated">
+                  <span class="material-symbols-outlined fs-4 filled-black me-1">share</span>Share
+                </button>
+                <button class="btn p-0 m-0 me-3 elevated">
+                  <span class="material-symbols-outlined fs-4">chip_extraction</span>Modify
+                </button>
+              </div>
+            </div>
+            
+            <!-- Dish Information -->
+            <div class="dish-information">
+              <h6 class="text-uppercase fw-bold w-100">Dish Information</h6>
+              <div class="row" style="margin: auto;">
+                
+                <!-- Main Details -->
+                <div class="main-details-divider w-100">&#8203;</div>
+                <div class="main-details pt-2 pb-3">
+                  <div class="table-responsive">
+                    <table id="dish-information-table">
+                      <tbody>
+                        <tr>
+                          <th scope="row"r><span class="material-symbols-outlined">dinner_dining</span>Course <br></th>
+                          <td>Appetizer, Barbecue, Dinner, Main Course</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><span class="material-symbols-outlined">restaurant</span>Cuisine</td>
+                          <td>Asian, Korean</td>
+                        </tr>
+                          <th scope="row"><span class="material-symbols-outlined">timer</span>Preparation Time</th>
+                          <td>5 minutes</td>
+                        <tr>
+                        <tr>
+                          <th scope="row"><span class="material-symbols-outlined">cooking</span>Cooking Time</th>
+                          <td>20 minutes</td>    
+                        </tr>
+        
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                
+                <!-- Nutrition -->
+                <div class="nutrition-divider w-100 mt-3">&#8203;</div>
+                <div class="nutrition-information">
+      
+                  <!-- Nutrition Header -->
+                  <div class="subheading">
+                    <span class="material-symbols-outlined">nutrition</span>
+                    <strong class="text-uppercase">Nutrition</strong>
+                  </div>
+                  <hr>
+                  <!-- Nutrition Data -->
+                  <div class="container mt-0 mb-3">
+                    <div class="table-responsive">
+                      <table class="nutrition-table m-auto">
+                        <tr>
+                          <th scope="row">Serving:</th>
+                          <td>1 Serving</td>
+                          <th scope="row">Saturated Fats:</th>
+                          <td>1000 mg</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Calories:</th>
+                          <td>104 kcal</td>
+                          <th scope="row">Cholesterol:</th>
+                          <td>4 mg</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Carbohydrates</th>
+                          <td>21 g</td>
+                          <th scope="row">Sodium:</th>
+                          <td>495 mg</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Protein:</th>
+                          <td>1 g</td>
+                          <th scope="row">Potassium:</th>
+                          <td>73 mg</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Fat:</th>
+                          <td>2 g</td>
+                          <th scope="row">Fiber:</th>
+                          <td>1000 mg</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+      
+                <!-- Ingredients -->
+                <div class="ingredients-divider w-100 mt-3">&#8203;</div>
+                <div class="ingredients-information">
+                  
+                  <div class="subheading">
+                    <span class="material-symbols-outlined">kebab_dining</span>
+                    <strong class="text-uppercase">Ingredients</strong>
+                  </div>
+                  
+                  <hr>
+      
+                  <div class="row" style="margin:auto">
+                    <div class="col">
+                      <img id="second-image" src="static/skewer-plate.png" alt="Plate of Korean BBQ Skewers" class="float-end imgshadow">
+                      <ul>
+                        <li>12 oz. lean sirloin steaks</li>
+                        <li>1 small onion</li>
+                        <li>1/3 cup low sodium soy sauce</li>
+                        <li>1/3 cup brown sugar</li>
+                        <li>1 tablespoon sesame seeds</li>
+                        <li>2 teaspoons sesame oil</li>
+                        <li>4 cloves garlic</li>
+                        <li>1 tablespoon freshly grated ginger</li>
+                        <li>1 teaspoon sriracha</li>
+                        <li>2 tablespoons honey</li>
+                        <li>1 teaspoon salt and pepper</li>
+                        <li>red pepper flakes, sesame seeds and green onions for garnish</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Instructions -->
+                <div class="instruction-divider w-100 mt-3">&#8203;</div>
+                <div class="instruction-information">
+                  
+                  <!-- Heading -->
+                  <div class="subheading">
+                    <span class="material-symbols-outlined">menu_book</span>
+                    <strong class="text-uppercase">Instructions</strong>
+                  </div>
+        
+                  <div class="instructions">
+                    <div class="row m-0 mb-2 step align-items-center" style="background-color:#EACBCB">
+                      <div class="col-1 step-num">1</div>
+                      <div class="col-11 step-content ps-4">
+                        Pound the steaks with a meat tenderizer gently until about 1.5 
+                        centimeters thick (approximately half an inch).
+                      </div>
+                    </div>
+              
+                    <div class="row m-0 my-2 step align-items-center" style="background-color:#E2B6B6">
+                      <div class="col-1 step-num">2</div>
+                      <div class="col-11 step-content ps-4">
+                        Slice the steaks lengthwise into long strips about 2.5-3 centimetres wide (about 1.5 inches).
+                      </div>
+                    </div>
+              
+                    <div class="row m-0 my-2 step align-items-center" style="background-color:#DCA5A5">
+                      <div class="col-1 step-num">3</div>
+                      <div class="col-11 step-content ps-4">
+                        Thread the steak strips onto metal or wooden skewers (about 2-3 strips per skewer, to make 6 skewers). Set aside.
+                      </div>
+                    </div>
+              
+                    <div class="row m-0 my-2 step align-items-center" style="background-color:#D69595">
+                      <div class="col-1 step-num">4</div>
+                      <div class="col-11 step-content ps-4">
+                        In a large, shallow baking dish or container combine the onion, soy sauce,
+                        brown sugar, sesame seeds, sesame oil, garlic, ginger, sriracha, honey, and salt and pepper. Whisk until well combined.
+                      </div>
+                    </div>
+              
+                    <div class="row m-0 my-2 step align-items-center" style="background-color:#D28888">
+                      <div class="col-1 step-num">5</div>
+                      <div class="col-11 step-content ps-4">
+                        Place the beef skewers in the marinade and turn the skewers in the marinade until well coated.
+                      </div>
+                    </div>
+              
+                    <div class="row m-0 my-2 step align-items-center" style="background-color:#CC7A7A">
+                      <div class="col-1 step-num">6</div>
+                      <div class="col-11 step-content ps-4">
+                        Cover with plastic wrap or a lid and refrigerate for two hours or overnight.
+                      </div>
+                    </div>
+              
+                    <div class="row m-0 my-2 step align-items-center" style="background-color:#C76C6C">
+                      <div class="col-1 step-num">7</div>
+                      <div class="col-11 step-content ps-4">
+                        When ready to grill, place the beef skewers on a hot grill or griddle for no more than 5 minutes per side 
+                        (it usually takes 5 minutes for the first side and then 3-4 minutes for the second side.
+                      </div>
+                    </div>
+              
+                    <div class="row m-0 my-2 step align-items-center" style="background-color:#BF5C5C">
+                      <div class="col-1 step-num">8</div>
+                      <div class="col-11 step-content ps-4">
+                        Remove from the grill or griddle and let rest under foil for 5 minutes before serving.
+                      </div>
+                    </div>
+                  </div>  
+      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+    <!-- Comment Section -->
+  <div class="comment-section mx-auto">
+    <div class="container mx-auto p-0 m-0">
+      <div class="row pt-5 mt-5 mx-auto">
+        <div class="col-12 col-lg-10 pe-0 mx-auto">
+          <div class="comments p-5 rounded-4 mx-auto">
+            <h2 class="title">Comments</h2>
+            <div class="row mt-0">
+              <!-- Comment 1 -->
+              <div class="col">
+                <div class="d-flex user-info p-2 pb-0">
+                  <img class="rounded-circle profilepic" src="static/profilepic.png">
+                  <div class="d-flex flex-column ps-2">
+                    <p class="mb-0 mt-2">Carpe Diem</p>
+                    <p>Posted on: <time datetime="2020-02-18">Feb 18, 2020</time></p>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-body-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                  <div class="d-flex flex-row fs-12 btns">
+                    <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i> Like</div>
+                    <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i> Reply</div>
+                  </div>
+              </div>
+              
+              <!-- Comment 1 Reply -->
+              <p class="m-0 p-0 text-body-secondary">Reply to Carpe Diem →</p>
+              <div class="col-1 py-2">
+                <div class="vr h-100"></div>
+              </div>
+              <div class="col-11 d-flex justify-content-end">
+                <div>
+                  <div class="d-flex user-info p-2 pb-0">
+                    <img class="rounded-circle profilepic" src="static/profilepic.png">
+                    <div class="d-flex flex-column ps-2">
+                      <p class="mb-0 mt-2">Carpe Diem</p>
+                      <p>Posted on: <time datetime="2020-02-18">Feb 18, 2020</time></p>
+                    </div>
+                  </div>
+                  <div class="mt-2">
+                    <p class="text-body-tertiary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                    <div class="d-flex flex-row fs-12 btns">
+                      <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i> Like</div>
+                      <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i> Reply</div>
+                    </div>
+                </div>
+              </div>
+              <hr>
+              <!-- Comment 2 -->
+              <div class="col">
+                <div class="d-flex user-info p-2 pb-0">
+                  <img class="rounded-circle profilepic" src="static/profilepic.png">
+                  <div class="d-flex flex-column ps-2">
+                    <p class="mb-0 mt-2">Carpe Diem</p>
+                    <p>Posted on: <time datetime="2020-02-18">Feb 18, 2020</time></p>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-body-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                  <div class="d-flex flex-row fs-12 btns">
+                    <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i> Like</div>
+                    <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i> Reply</div>
+                  </div>
+              </div>
+              <hr>
+              <!-- Comment 3 -->
+              <div class="col">
+                <div class="d-flex user-info p-2 pb-0">
+                  <img class="rounded-circle profilepic" src="static/profilepic.png">
+                  <div class="d-flex flex-column ps-2">
+                    <p class="mb-0 mt-2">Carpe Diem</p>
+                    <p>Posted on: <time datetime="2020-02-18">Feb 18, 2020</time></p>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <p class="text-body-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                  <div class="d-flex flex-row fs-12 btns">
+                    <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i> Like</div>
+                    <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i> Reply</div>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comments p-5 mt-3 mb-5 rounded-4">
+            <!-- Comment Upload Section -->
+            <div class="col">
+              <h2>Leave a comment</h2>
+              <form class="form-group mb-4">
+                <label for="Name">Name</label>
+                <input type="text" class="form-control" id="Name" placeholder="e.g. Astryx" required>
+                <label for="Comment">Comment</label>
+                <textarea class="form-control" id="Comment" rows="3" placeholder="e.g. This recipe is amazing!" required></textarea>
+                <label for="media">Upload Media</label><br>
+                <input type="file" class="form-control rounded-0 .btn-sm" id="media" multiple>
+                <button type="submit" class="align-text-top btn btn-warning mt-1">Post Comment</button>
+              </form>
+            </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>  
+  </div>
+</body>
+</html> 

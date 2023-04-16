@@ -1,0 +1,4 @@
+.scrollable-filter {
+  height: calc(95vh); /* set the height of the scrollable area */
+  overflow-y: auto; /* enable vertical scrolling */
+}

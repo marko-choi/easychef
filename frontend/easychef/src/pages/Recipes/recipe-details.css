@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+    
+    * {
+      font-family: 'Oxygen', sans-serif;
+      line-height: 30px;
+    }
+    #tags{
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: auto;
+    }
+    
+    .tag-item {
+      font-size: 0.8rem;
+      color:white;
+      margin: 3px;
+      border-radius: 50px;
+      background-color: #EBBE89;
+    }
+
+    .checked {
+      color:orange;
+    }
+    .elevated {
+      border: 1px rgb(219, 218, 218) solid;
+      /* box-shadow: 0px 1px 2px rgba(0,0,0,0.19), 0px 1px 2px rgba(0, 0, 0, 0.109); */
+    }
+    .elevated > .btn {
+      padding: 30px !important;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 48;
+    }
+    
+    .filled {
+      font-variation-settings: 'FILL' 1;
+      color: rgb(234, 157, 157);
+    }
+    .filled-black {
+      font-variation-settings: 'FILL' 1;
+      color: rgb(59, 59, 93);
+    }
+    
+    .subheading {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .material-symbols-outlined {
+      font-weight: 500;
+      font-size: 30px;
+      vertical-align: bottom;
+    }
+    
+    /* Dish Information */
+    #dish-information-table th {
+      width: 11rem;
+    }
+    #dish-information-table .material-symbols-outlined {
+      font-size: 24px !important;
+    }
+    
+    .main-details-divider {
+      background-color: #CC7A7A;
+      height: 10px;
+    }
+    .main-details {
+      background-color: #fadbdb;
+    }
+    
+    /* Nutiriton Information */
+    .nutrition-divider {
+      background-color:rgb(120, 228, 228);
+      height: 10px;
+    }
+    .nutrition-information {
+      background-color: rgb(207, 238, 238);
+    }
+    .nutrition-information hr {
+      border-color: rgb(27, 82, 82);
+    }
+    .nutrition-table tr > * {
+      width: 13rem;
+    } 
+
+    /* Ingredient Information */
+    .ingredients-divider {
+      background-color: rgb(146, 191, 227);
+      height: 10px;
+    }
+    .ingredients-information {
+      background-color: rgb(212, 231, 247);
+    }
+    .ingredients-information hr {
+      border-color: rgb(23, 75, 121);
+    }
+    /* Reference: https://stackoverflow.com/questions/7698764/custom-bullet-symbol-for-li-elements-in-ul-that-is-a-regular-character-and */
+    .ingredients-information li {
+      line-height: 1.3rem;
+      padding-left: 1em;
+      text-indent: -1em;
+      /* font-family: cursive; */
+    }
+    .ingredients-information  ul {
+      list-style: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+    .ingredients-information li:before {
+      content: "►";
+      font-size: 10px;
+      padding-right: 5px;
+      /* background-color: red; */
+    }
+    #second-image{
+      width: 30%;
+    }
+
+    
+    /* Instructions Information */
+    .instruction-divider {
+      background-color: lavender;
+      height: 10px;
+    }
+
+    .instruction-information {
+      background-color: rgb(252, 248, 255);
+    }
+
+    .step {
+      min-height: 4rem;
+      border-radius: 10px;
+    }
+
+    .step-num {
+      color:white;
+      font-size: 3.75rem;
+      text-align: center;
+      padding-right: 0px;
+    }
+
+    .step-content {
+      line-height: 1.3rem;
+      font-size: 0.9rem;
+    }
+
+    .add-to-cart {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1;
+    }
+    
+    .current-basket, .purchase-table, .ingredients-table{
+      border: 1px solid rgb(195, 195, 195);
+    }
+
+    .current-basket thead,
+    .purchase-table thead,
+    .ingredients-table thead {
+      background:rgb(170, 170, 170);
+      color: white;
+    }
+
+    .current-basket td,
+    .purchase-table td,
+    .ingredients-table td {
+      padding-left: 10px;
+    }
+
+    .modal-header, .modal-title {
+      background: rgb(245, 235, 208);
+    }
+    
+    /* Comment section */
+    .profilepic{
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+    }
+
+    .comment-section {
+      background-color: #ffead2;
+    }
+    .comments {
+      background-color: rgba(255, 255, 255, 0.674);
+    }
+
+.recipe-detail-buttons {
+  height: 22px !important;
+  font-size: 12px !important; 
+}

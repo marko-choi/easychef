@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+  
+  * {
+    font-family: 'Oxygen', sans-serif;
+  }
+
+  .icon-divider {
+    border-right: 1px solid rgb(220, 220, 220);
+  }
+
+  .my-recipe-nav {
+    border-bottom:1px solid rgb(103, 157, 139);
+    padding-bottom: 0.8rem;
+  }
+  
+  .my-recipe-nav .nav-link {
+    color: rgb(103, 157, 139) !important;
+    /* border: 1px solid rgb(103, 157, 139); */
+  }
+
+  .my-recipe-nav .active {
+    background-color: rgb(145, 199, 181) !important;
+    color: white !important;
+  }
+
+  #posts, #likes, #interactions { color: rgb(103, 157, 139) !important; }
+  #posts.active, #likes.active, #interactions.active { color: white !important }
+  #posts:after, #likes:after, #interactions:after { 
+    background-color: transparent !important;
+    transform: none !important;
+  }
+  .my-recipe-nav-item:after {
+    background-color: transparent !important;
+    transform: none !important;
+  }
+  
+  .my-recipe-nav-item:hover {
+    color: white !important;
+  }
+
+  .my-recipe-nav .nav-link:hover { 
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(127, 198, 174) !important;
+  }
+  .card-details {
+    background-color: rgb(243, 206, 138);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+  .more-details-color { 
+    color: rgb(54, 53, 53) !important;
+    font-size: small !important;
+  }
+  .card-dropdown-toggle:hover {
+    background-color: rgb(216, 164, 68);
+    border-radius: 40px;
+  }
+  .dropdown-menu { z-index: 999; }
+
+  .card-icons {
+    text-align: center;
+  }
+
+  .my-recipes-description {
+    text-overflow: ellipsis !important;
+    /* -webkit-line-clamp: 4 !important;
+    -webkit-box-orient: vertical !important; */
+  }
+
+  .my-recipes-pagination > div > p {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
